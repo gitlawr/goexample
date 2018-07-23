@@ -1,0 +1,15 @@
+stages:
+- name: build
+  steps:
+  - runScriptConfig:
+      image: busybox
+      shellScript: |-
+        echo 1
+        sleep 10
+        echo hi
+        sleep 10
+        echo hi
+        sleep 10
+        echo hi
+        sleep 10
+timeout: 60
