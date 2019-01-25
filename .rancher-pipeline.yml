@@ -16,4 +16,3 @@ stages:
       tag: example/app:v1
       registry: 127.0.0.1:34239
 timeout: 60
-notification: {}
