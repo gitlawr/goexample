@@ -9,6 +9,24 @@ stages:
   - runScriptConfig:
       image: rancher/pipeline-tools:v0.1.4
       shellScript: git clone --branch demo https://github.com/gitlawr/test.git .
+  when:
+    branch: nonexistone
+- name: MoreClone
+  steps:
+  - runScriptConfig:
+      image: plugins/git
+      shellScript: /bin/drone-git
+    env:
+      PLUGIN_REMOTE: https://github.com/gitlawr/private.git
+      PLUGIN_PATH: .
+      PLUGIN_REF: refs/heads/demo
+      DRONE_NETRC_MACHINE: github.com
+      PLUGIN_SKIP_VERIFY: "true"
+    envFrom:
+    - sourceName: secret-name
+      sourceKey: DRONE_NETRC_USERNAME
+    - sourceName: secret-name
+      sourceKey: DRONE_NETRC_PASSWORD
 - name: build
   steps:
   - runScriptConfig:
