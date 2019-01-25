@@ -1,0 +1,17 @@
+stages:
+- name: SkippedNativeClone
+  steps:
+  - sourceCodeConfig: {}
+  when:
+    branch: nonexistone
+- name: Clone
+  steps:
+  - runScriptConfig:
+      image: rancher/pipeline-tools:v0.1.4
+      shellScript: git clone https://github.com/gitlawr/goexample.git .
+- name: build
+  steps:
+  - runScriptConfig:
+      image: busybox
+      shellScript: ls
+timeout: 60
