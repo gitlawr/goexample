@@ -3,6 +3,9 @@ stages:
   steps:
   - runScriptConfig:
       image: busybox
-      shellScript: |-
-        echo 1
+      shellScript: echo 1
+    cpuLimit: 100m
+    cpuRequest: 10m
+    memoryLimit: 100Mi
+    memoryRequest: 10Mi
 timeout: 60
