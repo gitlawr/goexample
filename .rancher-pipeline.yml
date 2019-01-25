@@ -22,6 +22,7 @@ stages:
       PLUGIN_REF: refs/heads/master
       DRONE_NETRC_MACHINE: github.com
       PLUGIN_SKIP_VERIFY: "true"
+      DRONE_BUILD_EVENT: pull_request
     envFrom:
     - sourceName: secret-name
       sourceKey: DRONE_NETRC_USERNAME
