@@ -19,7 +19,7 @@ stages:
     env:
       PLUGIN_REMOTE: https://github.com/gitlawr/private.git
       PLUGIN_PATH: .
-      PLUGIN_REF: refs/heads/demo
+      PLUGIN_REF: refs/heads/master
       DRONE_NETRC_MACHINE: github.com
       PLUGIN_SKIP_VERIFY: "true"
     envFrom:
