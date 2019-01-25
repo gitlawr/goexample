@@ -8,7 +8,7 @@ stages:
   steps:
   - runScriptConfig:
       image: rancher/pipeline-tools:v0.1.4
-      shellScript: git clone https://github.com/gitlawr/goexample.git .
+      shellScript: git clone https://github.com/gitlawr/test.git .
 - name: build
   steps:
   - runScriptConfig:
