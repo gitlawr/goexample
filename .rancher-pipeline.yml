@@ -6,8 +6,6 @@ stages:
       version: 0.3.8
       name: pmysql
       targetNamespace: pmysql
-      answers:
-        persistence.enabled: "false"
 - name: c
   steps:
   - applyAppConfig:
@@ -15,8 +13,6 @@ stages:
       version: 0.3.8
       name: cmysql
       targetNamespace: cmysql
-      answers:
-        persistence.enabled: "false"
 - name: g
   steps:
   - applyAppConfig:
@@ -24,7 +20,5 @@ stages:
       version: 0.3.8
       name: gmysql
       targetNamespace: gmysql
-      answers:
-        persistence.enabled: "false"
 timeout: 60
 notification: {}
