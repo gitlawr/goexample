@@ -1,18 +1,10 @@
 stages:
-- name: build
+- name: deploy
   steps:
-  - runScriptConfig:
-      image: busybox
-      shellScript: echo 1
-    cpuRequest: 10m
-    cpuLimit: 100m
-    memoryRequest: 10Mi
-    memoryLimit: 100Mi
-- name: publish
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: example/app:v1
-      registry: 127.0.0.1:34239
+  - applyAppConfig:
+      catalogTemplate: cattle-global-data:library-mysql
+      version: 0.3.8
+      name: testm
+      targetNamespace: default
 timeout: 60
+notification: {}
