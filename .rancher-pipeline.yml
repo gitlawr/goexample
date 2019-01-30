@@ -5,4 +5,4 @@ stages:
       image: busybox
       shellScript: echo $FOO
     env:
-      FOO: ${CICD_GIT_COMMIT}
+      FOO: ${CICD_GIT_BRANCH}
