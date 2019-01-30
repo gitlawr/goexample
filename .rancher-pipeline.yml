@@ -1,10 +1,12 @@
 stages:
-- name: deploy
+- name: Build Backend
   steps:
-  - applyAppConfig:
-      catalogTemplate: cattle-global-data:library-mysql
-      version: 0.3.8
-      name: testm
-      targetNamespace: default
-timeout: 60
-notification: {}
+  - runScriptConfig:
+      image: busybox
+      shellScript: ls
+  - runScriptConfig:
+      image: busybox
+      shellScript: echo taging qa
+    when:
+      branch: [ "QA-*" ]
+      event: tag
