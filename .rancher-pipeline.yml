@@ -3,10 +3,10 @@ stages:
   steps:
   - runScriptConfig:
       image: busybox
-      shellScript: ls
-  - runScriptConfig:
-      image: busybox
-      shellScript: echo taging qa
+      shellScript: echo $FOO
+    env:
+      FOO: ${CICD_GIT_COMMIT}
     when:
-      branch: [ "QA-*" ]
-      event: tag
+      branch: {}
+      event: {}
+notification: {}
