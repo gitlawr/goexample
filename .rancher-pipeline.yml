@@ -1,12 +1,8 @@
 stages:
-- name: Build Backend
+- name: Build
   steps:
   - runScriptConfig:
       image: busybox
       shellScript: echo $FOO
     env:
       FOO: ${CICD_GIT_COMMIT}
-    when:
-      branch: {}
-      event: {}
-notification: {}
