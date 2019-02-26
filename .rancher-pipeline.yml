@@ -4,9 +4,8 @@ stages:
   - runScriptConfig:
       image: plugins/docker:17.12
       shellScript: |-
-        ls
-        # export PLUGIN_TAG=mytag
-        # /usr/local/bin/dockerd-entrypoint.sh /bin/drone-docker
+        export PLUGIN_TAG=mytag
+        /usr/local/bin/dockerd-entrypoint.sh /bin/drone-docker
     env:
       PLUGIN_CONTEXT: .
       PLUGIN_DOCKERFILE: ./Dockerfile
@@ -16,5 +15,6 @@ stages:
       sourceKey: DOCKER_USERNAME
     - sourceName: mysecret
       sourceKey: DOCKER_PASSWORD
+    privileged: true
 timeout: 60
 notification: {}
