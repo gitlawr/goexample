@@ -1,24 +1,12 @@
 stages:
-- name: p
+- name: custom-publish
   steps:
-  - applyAppConfig:
-      catalogTemplate: p-862cd:pcatalog-mysql
-      version: 0.3.8
-      name: pmysql
-      targetNamespace: pmysql
-- name: c
-  steps:
-  - applyAppConfig:
-      catalogTemplate: c-7n4rc:ccatalog-mysql
-      version: 0.3.8
-      name: cmysql
-      targetNamespace: cmysql
-- name: g
-  steps:
-  - applyAppConfig:
-      catalogTemplate: cattle-global-data:library-mysql
-      version: 0.3.8
-      name: gmysql
-      targetNamespace: gmysql
+  - runScriptConfig:
+      image: plugins/docker:17.12
+      shellScript: ls
+    env:
+      PLUGIN_CONTEXT: .
+      PLUGIN_DOCKERFILE: ./Dockerfile
+      PLUGIN_REPO: lawr/test
 timeout: 60
 notification: {}
