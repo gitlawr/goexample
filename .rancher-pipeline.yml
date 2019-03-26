@@ -1,20 +1,12 @@
+# .rancher-pipeline.yml
 stages:
-- name: custom-publish
+- name: Publish
   steps:
-  - runScriptConfig:
-      image: plugins/docker:17.12
-      shellScript: |-
-        export PLUGIN_TAG=mytag
-        /usr/local/bin/dockerd-entrypoint.sh /bin/drone-docker
-    env:
-      PLUGIN_CONTEXT: .
-      PLUGIN_DOCKERFILE: ./Dockerfile
-      PLUGIN_REPO: lawr/test
-    envFrom:
-    - sourceName: mysecret
-      sourceKey: DOCKER_USERNAME
-    - sourceName: mysecret
-      sourceKey: DOCKER_PASSWORD
-    privileged: true
-timeout: 60
-notification: {}
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: api:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
