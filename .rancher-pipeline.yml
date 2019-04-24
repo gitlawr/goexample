@@ -9,8 +9,7 @@ stages:
       registry: index.docker.io
     env:
       DOCKER_HOST: tcp://dind.default:2375
-      PLUGIN_DAEMON_OFF: "true"
-      PLUGIN_DEBUG: "true"
+      PLUGIN_DAEMON_OFF: true
 - name: Deploy
   steps:
   - applyYamlConfig:
