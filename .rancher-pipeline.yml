@@ -8,6 +8,7 @@ stages:
     env:
       DOCKER_HOST: tcp://dind:2379
       PLUGIN_DAEMON_OFF: "true"
+      PLUGIN_DEBUG: "true"
 - name: Deploy
   steps:
   - applyYamlConfig:
