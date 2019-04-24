@@ -5,6 +5,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: lawr/test:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: index.docker.io
     env:
       DOCKER_HOST: tcp://dind:2375
       PLUGIN_DAEMON_OFF: "true"
