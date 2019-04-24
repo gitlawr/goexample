@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: lawr/test:${CICD_EXECUTION_SEQUENCE}
     env:
-      DOCKER_HOST: tcp://dind:2379
+      DOCKER_HOST: tcp://dind:2375
       PLUGIN_DAEMON_OFF: "true"
       PLUGIN_DEBUG: "true"
 - name: Deploy
