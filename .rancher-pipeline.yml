@@ -20,5 +20,6 @@ stages:
   - applyYamlConfig:
       path: ./deployment.yaml
     env:
+      SUBSTITUTE_ALL: "true"
       TESTME: heheheheh
 notification: {}
