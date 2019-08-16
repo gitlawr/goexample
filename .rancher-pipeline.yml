@@ -19,3 +19,6 @@ stages:
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+    env:
+      TESTME: heheheheh
+notification: {}
