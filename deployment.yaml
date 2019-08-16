@@ -32,5 +32,8 @@ spec:
       containers:
         - name: api
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          env:
+          - name: en
+            value: ${TESTME}
           ports:
             - containerPort: 80
